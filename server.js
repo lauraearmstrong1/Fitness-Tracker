@@ -43,6 +43,28 @@ app.get("/api/workouts", (req, res) => {
         res.json(err);
       });
   })
+  app.put("/api/workouts/:id", (req, res)=>{
+      console.log(req.body)
+      const id = req.params.id
+      Workout.findByIdAndUpdate(id,{$push :{exercises : req.body}})
+      .then(result=>{
+          console.log(result)
+          res.json(result)
+      })
+      .catch(err=> res.json(err))
+  })
+  app.get("/stats", (req, res)=>{
+    res.sendFile(path.join(__dirname, "./public/stats.html"))
+  })
+  app.get("/api/workouts/range", (req, res) => {
+    Workout.find({}).limit(7)
+      .then(workouts => {
+        res.json(workouts);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
