@@ -6,4 +6,6 @@ When the user loads the page, they are given the option to create a new workout 
 
 The user can view their weekly workout progress on the Fitness Dashboard, showing two graphs of their exercises and time spent working out.
 
+https://lauraearmstrong1.github.io/Fitness-Tracker/
+
 ![Fitness Tracker](./images/workouts.JPG)
